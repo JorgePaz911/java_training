@@ -3,7 +3,7 @@ package Day2;
 class InsufficientFundException extends Exception{
     private int amount;
 
-    public  InsufficientFundException(){
+    public InsufficientFundException(){
         System.out.println("Insufficient amount requested");
     }
 
@@ -34,12 +34,7 @@ class Account{
             balance -= amount;
             System.out.println("Amount debited: "+ amount);
         }else{
-            throw new InsufficientFundException();
-//            try {
-//                throw new InsufficientFundException();
-//            } catch (InsufficientFundException e) {
-//                e.printStackTrace();
-//            }
+            throw new InsufficientFundException(amount);
         }
     }
 
@@ -53,15 +48,10 @@ class Account{
 }
 
 
-
 public class ExceptionAccount {
     public static void main(String[] args) {
-        Account account = new Account(123456);
-//        System.out.println(account.getBalance());
-//        account.deposit(5000);
-//        account.withdraw(2000);
-//        account.deposit(1000);
-//        account.withdraw(10000);
+        Account account = new Account(1);
+
         account.deposit(5000);
         try{
             account.withdraw(2000);
